@@ -11,5 +11,9 @@ func init() {
 }
 
 func main() {
+	defer internal.Cleanup()
 	cmd.Execute()
+
+	// continue working
+	select {}
 }

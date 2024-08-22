@@ -10,6 +10,7 @@ import (
 
 func init() {
 	rootCmd.AddCommand(serverCmd)
+
 }
 
 var serverCmd = &cobra.Command{
@@ -26,6 +27,5 @@ var serverCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		// sudo ip link set dev tun0 up
 	},
 }

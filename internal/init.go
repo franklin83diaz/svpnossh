@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"svpnossh/pkg"
 )
 
 // DebugLevel is a function that sets the log level to debug, showing the file name and line number
@@ -20,4 +21,11 @@ func DebugLevel() {
 		//reset color
 		fmt.Print("\033[0m")
 	}
+}
+
+// Cleanup is a function that cleans up the resources
+func Cleanup() error {
+	fmt.Println("Cleaning up the resources")
+	return pkg.DeleteNetInterface()
+
 }
