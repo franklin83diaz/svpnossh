@@ -37,6 +37,6 @@ var serverCmd = &cobra.Command{
 			//colorreset
 			fmt.Print("\033[0m")
 		}
-		pkg.CreateNetInterface()
+		pkg.CreateNetInterface("10.20.30.1/30")
 	},
 }

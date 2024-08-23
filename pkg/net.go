@@ -7,7 +7,7 @@ import (
 	"github.com/vishvananda/netlink"
 )
 
-func CreateNetInterface() {
+func CreateNetInterface(ip string) {
 
 	// Create a network interface tun
 	linkAttrs := netlink.NewLinkAttrs()
@@ -29,7 +29,7 @@ func CreateNetInterface() {
 	}
 
 	// IP address
-	addr, err := netlink.ParseAddr("10.20.30.1/30")
+	addr, err := netlink.ParseAddr(ip)
 	if err != nil {
 		log.Fatalf("Error parsing the ip addr: %v", err)
 	}
