@@ -19,7 +19,8 @@ var cleanCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		err := internal.Cleanup()
 		if err != nil {
-			os.Exit(1)
+			fmt.Println("Nathing to clean up")
+			os.Exit(0)
 		}
 		fmt.Println("Resources cleaned up successfully")
 		os.Exit(0)

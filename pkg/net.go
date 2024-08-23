@@ -1,7 +1,6 @@
 package pkg
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -55,7 +54,7 @@ func DeleteNetInterface() error {
 		if os.Getenv("DEBUG") == "true" {
 			log.Fatalf("Error getting the interface: %v", err)
 		}
-		fmt.Println("The interface tun0 does not exist, nothing to clean up")
+
 		return err
 	}
 

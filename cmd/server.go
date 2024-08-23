@@ -2,8 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"log"
-	"os/exec"
+	"svpnossh/pkg"
 
 	"github.com/spf13/cobra"
 )
@@ -20,12 +19,7 @@ var serverCmd = &cobra.Command{
 	create a network interface tuntap with name tun0 and up.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("server mode")
-
-		// sudo ip tuntap add dev tun0 mode tun
-		cmdSystem := exec.Command("sudo", "ip", "tuntap", "add", "dev", "tun0", "mode", "tun")
-		if err := cmdSystem.Run(); err != nil {
-			log.Fatal(err)
-		}
+		pkg.CreateNetInterface()
 
 	},
 }
