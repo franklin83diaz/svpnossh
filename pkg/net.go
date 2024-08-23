@@ -66,3 +66,12 @@ func DeleteNetInterface() error {
 	return nil
 
 }
+
+func CheckInterfaceExists() bool {
+
+	// Get the network interface tun
+	_, err := netlink.LinkByName("tun0")
+
+	return err != nil
+
+}

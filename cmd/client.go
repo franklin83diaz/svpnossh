@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
 	"svpnossh/pkg"
 
@@ -33,6 +34,20 @@ var clientCmd = &cobra.Command{
 		}
 
 		fmt.Println("client mode")
+
+		//Check if the interface tun0 exists
+		interfaceExists := pkg.CheckInterfaceExists()
+		if !interfaceExists {
+			fmt.Println("Error: the interface tun0 already exists")
+			fmt.Println("You need to delete the interface tun0 before creating a new one")
+			//coloryelllow
+			fmt.Print("\033[33m")
+			fmt.Println("\nRun the command: svpnossh clean")
+			//colorreset
+			fmt.Print("\033[0m")
+			os.Exit(1)
+		}
+
 		pkg.CreateNetInterface("10.20.30.2/30")
 
 		// Create the tunnel
