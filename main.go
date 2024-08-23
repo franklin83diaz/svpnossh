@@ -31,4 +31,6 @@ func main() {
 		}
 	}()
 	cmd.Execute()
+
+	select {}
 }
