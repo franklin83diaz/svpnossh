@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -18,5 +19,6 @@ var versionCmd = &cobra.Command{
 	svpnossh version`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("svpnossh v1.0.0")
+		os.Exit(0)
 	},
 }
